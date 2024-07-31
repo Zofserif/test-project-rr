@@ -13,6 +13,7 @@ export default async function HomePage() {
       {posts.map((post) => (
         <div key={post.id}>{post.name}</div>
       ))}
+      <div>Test test</div>
     </main>
   );
 }
