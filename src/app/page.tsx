@@ -1,5 +1,4 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { TopNav } from "./_components/topnav";
 import { getMyImages } from "~/server/queries";
 import Image from "next/image";
 export const dynamic = "force-dynamic";
@@ -29,7 +28,6 @@ async function Images() {
 export default async function HomePage() {
   return (
     <main>
-      <TopNav />
       <SignedOut> Please sign in to view images </SignedOut>
       <SignedIn>
         <Images />

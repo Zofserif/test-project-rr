@@ -8,6 +8,8 @@ import { type Metadata } from "next";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
+import React from "react";
+import { TopNav } from "./_components/topnav";
 
 export const metadata: Metadata = {
   title: "Test Project-rr",
@@ -17,7 +19,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+  modal,
+}: Readonly<{ children: React.ReactNode; modal: React.ReactNode }>) {
   return (
     <ClerkProvider>
       <html lang="en" className={`${GeistSans.variable}`}>
@@ -30,7 +33,11 @@ export default function RootLayout({
            */
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
-        <body>{children}</body>
+        <body>
+          <TopNav />
+          {children}
+          {modal}
+        </body>
       </html>
     </ClerkProvider>
   );
